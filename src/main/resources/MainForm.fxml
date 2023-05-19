@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.GUI.MainController">
+    <children>
+        <VBox>
+            <MenuBar>
+                <Menu text="File Transfer">
+                    <MenuItem text="Exit" onAction="#Exit"/>
+                </Menu>
+            </MenuBar>
+
+            <TabPane>
+                <Tab text="FTP Upload">
+                    <VBox spacing="10">
+                        <TextField fx:id="ftpUploadAddress" promptText="FTP Server Address"/>
+                        <TextField fx:id="ftpUploadPort" promptText="Port"/>
+                        <TextField fx:id="ftpUploadUsername" promptText="Username"/>
+                        <PasswordField fx:id="ftpUploadPassword" promptText="Password"/>
+                        <TextField fx:id="ftpUploadFilename" promptText="Remote Folder to Upload"/>
+                        <Button text="Browse..." onAction="#browseFileUpload"/>
+                        <Button text="Upload" onAction="#uploadFileToFtp"/>
+                    </VBox>
+                </Tab>
+
+                <Tab text="FTP Download">
+                    <VBox spacing="10">
+                        <TextField fx:id="ftpDownloadAddress" promptText="FTP Server Address"/>
+                        <TextField fx:id="ftpDownloadFilename" promptText="Filename"/>
+                        <TextField fx:id="ftpDownloadPort" promptText="Port"/>
+                        <TextField fx:id="ftpDownloadUsername" promptText="Username"/>
+                        <PasswordField fx:id="ftpDownloadPassword" promptText="Password"/>
+                        <Button text="Browse..." onAction="#browseFileDownload"/>
+                        <Button text="Download" onAction="#downloadFileFromFtp"/>
+                    </VBox>
+                </Tab>
+
+                <Tab text="P2P File Transfer">
+                    <VBox spacing="10">
+                        <TextField fx:id="p2pServerAddress" promptText="Server Address"/>
+                        <TextField fx:id="p2pServerPort" promptText="Server Port"/>
+                        <Button text="Browse..." onAction="#browseFileP2P"/>
+                        <Button text="Send" onAction="#sendFileP2P"/>
+                    </VBox>
+                </Tab>
+
+                <Tab text="FTP Host">
+                    <VBox spacing="10">
+                        <TextField fx:id="ftpServerAddress" promptText="Server Address"/>
+                        <TextField fx:id="ftpServerPort" promptText="Server Port"/>
+                        <TextField fx:id="ftpServerUser" promptText="User"/>
+                        <PasswordField fx:id="ftpServerPassword" promptText="Password"/>
+                        <TextField fx:id="ftpHomeDirectory" promptText="Home Directory"/>
+                        <Button text="Start" onAction="#StartFTPServer"/>
+                        <Button text="Stop" onAction="#StopFTPServer"/>
+                    </VBox>
+                </Tab>
+
+                <Tab text="P2P Host">
+                    <VBox spacing="10">
+                        <TextField fx:id="p2pHostAddress" promptText="Server Address"/>
+                        <TextField fx:id="p2pHostPort" promptText="Server Port"/>
+                        <Button text="Start" onAction="#StartP2PServer"/>
+                        <Button text="Stop" onAction="#StopP2PServer"/>
+                    </VBox>
+                </Tab>
+            </TabPane>
+
+            <Label fx:id="statusBar"/>
+        </VBox>
+    </children>
+</AnchorPane>
